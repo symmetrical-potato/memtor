@@ -1,4 +1,7 @@
 head .jumbotron, body .jumbotron {
-  height: 100vh; }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 /*# sourceMappingURL=index.css.map */
