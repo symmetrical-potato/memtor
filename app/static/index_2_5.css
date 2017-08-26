@@ -4,6 +4,9 @@ head .jumbotron, body .jumbotron {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
   margin: 0; }
+  head .jumbotron .lead-wrapper, body .jumbotron .lead-wrapper {
+    flex: 0 0 30%; }
 
-/*# sourceMappingURL=index_2_1.cssss.map */
+/*# sourceMappingURL=index_2_5.css.map */
