@@ -1,0 +1,13 @@
+body {
+  background: #eceeef; }
+  body .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    body .container img {
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%; }
+
+/*# sourceMappingURL=info_3_5.css.map */
