@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Memtor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="{{url_for('.static', filename='index_2_5.css')}}">
 
 </head>
 <body>
 
     <div class="jumbotron">
-        <h1 class="display-3"> MEMTOR </h1>
-        <div class="input-group">
-            <span class="input-group-addon" id="addon">https://vk.com/</span>
-            <input type="text" class="form-control" aria-describedby="addon" placeholder="URL СООБЩЕСТВА">
-            <span class="input-group-btn">
+        <div class="col-8 lead-wrapper">
+            <h1 class="display-3"> MEMTOR </h1>
+            <div class="input-group">
+                <span class="input-group-addon" id="addon">https://vk.com/</span>
+                <input type="text" class="form-control" aria-describedby="addon" placeholder="URL СООБЩЕСТВА">
+                <span class="input-group-btn">
                 <button class="btn btn-primary" type="button">Найти</button>
             </span>
+            </div>
         </div>
-
     </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

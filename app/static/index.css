@@ -1,8 +1,0 @@
-head .jumbotron, body .jumbotron {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0; }
-
-/*# sourceMappingURL=index.css.map */
