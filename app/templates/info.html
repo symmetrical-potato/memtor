@@ -4,21 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('.static', filename='info_3_2.css')}}">
-    <title>Статистика сообщества {{ name }}</title>
+    <link rel="stylesheet" href="{{url_for('.static', filename='info_3_5.css')}}">
+    <title>Статистика сообщества {{ data.name }}</title>
 </head>
 <body>
     <div class="container">
-        <div class="media">
-            <img src="{{url_for('.static', filename='default-2.png')}}" class="d-flex mr-3">
-            <div class="media-body">
-                <h1 class="mt-0">{{ name }}</h1>
-                <p> {{ description }} </p>
+        <div class="row">
+                <div class="col-2">
+                    <img src="{{url_for('.static', filename='default-2.png')}}" class="d-flex mr-3">
+                </div>
+                <div class="col-6">
+                    <h1 class="mt-0">{{ data.name }}</h1>
+                    <p> {{ data.description }} </p>
+                    <a href="http://vk.com/{{ link }}">http://vk.com/{{ data.link }}</a>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <h2 class="mt-10">Статистика</h2>
+                <div class="card-group">
+                    <div class="card p-3">
+                        <h3 class="card-title">Среднее количество лайков</h3>
+                        <canvas id="chart-likes" width="100%"></canvas>
+                    </div>
+                    <div class="card p-3">
+                        <h3 class="card-title">Среднее количество репостов</h3>
+                        <canvas id="chart-reps" width="100%"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-10">
+                <div class="card-group">
+                    <div class="card p-3">
+                        <h3 class="card-title">Среднее количество комментариев</h3>
+                            <canvas id="chart-coms" width="50%"></canvas>
+                    </div>
+                    <div class="card p-3">
+                        <h3 class="card-title">Общая информация</h3>
+                        <p class="card-text">Частота публикаций: {{ data.general.posts_freq }}</p>
+                        <p class="card-text">Средняя длина публикации: {{ data.general.avg_post_len }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+    <script>
+        var ctx = document.getElementById("chart-likes");
+        var chartLikes = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Месяц', 'Две недели', 'Неделя'],
+                datasets: [{
+                   label: "Лайки",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                   data: [{{data.median_likes.month}}, {{data.median_likes.two_weeks}}, {{data.median_likes.one_week}}]
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctxReps = document.getElementById("chart-reps");
+        var chartReps = new Chart(ctxReps, {
+            type: 'bar',
+            data: {
+                labels: ['Месяц', 'Две недели', 'Неделя'],
+                datasets: [{
+                   label: "Репосты",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                   data: [{{data.median_reposts.month}}, {{data.median_reposts.two_weeks}}, {{data.median_reposts.one_week}}]
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        })
+
+        var ctxComs = document.getElementById("chart-coms");
+        var chartReps = new Chart(ctxComs, {
+            type: 'bar',
+            data: {
+                labels: ['Месяц', 'Две недели', 'Неделя'],
+                datasets: [{
+                   label: "Комментарии",
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                   data: [{{data.median_comments.month}}, {{data.median_comments.two_weeks}}, {{data.median_comments.one_week}}]
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        })
+
+    </script>
 </body>
 </html>
