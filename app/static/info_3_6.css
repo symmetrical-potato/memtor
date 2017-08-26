@@ -1,7 +1,7 @@
 body {
   background: #eceeef; }
   body .container {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center; }
@@ -10,4 +10,4 @@ body {
       -moz-border-radius: 100%;
       border-radius: 100%; }
 
-/*# sourceMappingURL=info_3_5.css.map */
+/*# sourceMappingURL=info_3_6.css.map */
