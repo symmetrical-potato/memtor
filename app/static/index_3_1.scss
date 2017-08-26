@@ -10,7 +10,8 @@
 
 head, body {
   .jumbotron {
-    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
 
     display: flex;
     flex-direction: column;

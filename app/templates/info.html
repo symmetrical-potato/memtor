@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('.static', filename='info_3_6.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='info_3_7.css')}}">
     <title>Статистика сообщества {{ data.name }}</title>
+    <style>
+        .row {
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
                 <div class="col-2">
                     <img src="{{url_for('.static', filename='default-2.png')}}" class="d-flex mr-3">
                 </div>
@@ -19,7 +25,17 @@
                     <a href="http://vk.com/{{ data.link }}">http://vk.com/{{ data.link }}</a>
                 </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href=".stats-col">Статистика</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=".topics-col">Актуальные темы</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row justify-content-start stats-col" >
             <div class="col-10">
                 <h2 class="mt-10">Статистика</h2>
                 <div class="card-group">
@@ -34,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-start stats-col">
             <div class="col-10">
                 <div class="card-group">
                     <div class="card p-3">
@@ -49,13 +65,33 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-start topics-col" style="display: none;">
+            <div class="col-10">
+                <h2> Актуальные темы </h2>
+                <canvas id="word-cloud-1" width="800px"></canvas>
+            </div>
+        </div>
 
     </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+    <script src="{{url_for('.static', filename='wordcloud2.js')}}"></script>
     <script>
+        $('.nav-link').click(function(e){
+           e.preventDefault();
+
+           $('.stats-col').toArray().forEach(function (e){
+               $(e).css('display','none');
+           });
+           $('.topics-col').css('display', 'none');
+           var id = $(this).attr('href');
+           console.log('>>', id);
+
+           $(id).css('display','block');
+        });
+
         $('body').css('display','none');
         $('body').fadeIn(400);
 
@@ -123,7 +159,37 @@
                     }]
                 }
             }
-        })
+        });
+
+        var regex = /&#39;(\S+)&#39;/g;
+        var strings = `{{data.clouds}}`.match(regex)
+
+
+        console.log(strings);
+
+        var list = [];
+        for (var i = 0; i < strings.length; i++) {
+            list.push([strings[i].replace(/&#39;/g, ""), Math.ceil((25 - i) / 5) * 10 ]);
+        }
+
+        console.log(list);
+
+
+
+
+
+        WordCloud(document.getElementById('word-cloud-1'), { list: list });
+
+        var wc = document.getElementById('word-cloud-1');
+//        var h = parseInt(wc.getAttribute("height"));
+//        var w = parseInt(wc.getAttribute("width"));
+
+        var handle = wc.getContext('2d');
+        handle.canvas.width = 1200;
+        handle.canvas.height = 600;
+
+
+
 
     </script>
 </body>

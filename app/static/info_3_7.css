@@ -1,13 +1,10 @@
 body {
   background: #eceeef; }
   body .container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
+    min-height: 100vh; }
     body .container img {
       -webkit-border-radius: 100%;
       -moz-border-radius: 100%;
       border-radius: 100%; }
 
-/*# sourceMappingURL=info_3_6.css.map */
+/*# sourceMappingURL=info_3_7.css.map */
