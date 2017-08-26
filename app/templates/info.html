@@ -9,17 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
                 <div class="col-2">
                     <img src="{{url_for('.static', filename='default-2.png')}}" class="d-flex mr-3">
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                     <h1 class="mt-0">{{ data.name }}</h1>
                     <p> {{ data.description }} </p>
                     <a href="http://vk.com/{{ link }}">http://vk.com/{{ data.link }}</a>
                 </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-10">
                 <h2 class="mt-10">Статистика</h2>
                 <div class="card-group">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-10">
                 <div class="card-group">
                     <div class="card p-3">
