@@ -3,6 +3,7 @@ head .jumbotron, body .jumbotron {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 0; }
 
-/*# sourceMappingURL=index_2.cssss.map */
+/*# sourceMappingURL=index_2_1.cssss.map */
