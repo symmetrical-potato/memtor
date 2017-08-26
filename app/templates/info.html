@@ -16,7 +16,7 @@
                 <div class="col-8">
                     <h1 class="mt-0">{{ data.name }}</h1>
                     <p> {{ data.description }} </p>
-                    <a href="http://vk.com/{{ link }}">http://vk.com/{{ data.link }}</a>
+                    <a href="http://vk.com/{{ data.link }}">http://vk.com/{{ data.link }}</a>
                 </div>
         </div>
         <div class="row justify-content-center">
@@ -56,6 +56,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script>
+        $('body').css('display','none');
+        $('body').fadeIn(400);
+
         var ctx = document.getElementById("chart-likes");
         var chartLikes = new Chart(ctx, {
             type: 'bar',

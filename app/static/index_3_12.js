@@ -1,4 +1,10 @@
+$('body').css('display', 'none');
+$('body').fadeIn(400);
+
+
 $(document).ready(function () {
+
+
 
     $('.smooth').click( function(e) {
         var rd = $(this).attr('href');
