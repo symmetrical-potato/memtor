@@ -1,7 +1,11 @@
 import json
 
+from stats.stats import get_all_stats
 
-with open('cyberleninka.json') as file:
+with open('pn60.json') as file:
     data = json.load(file)
 
-print(data)
+stat = get_all_stats(data[1:])
+
+with open('pn6_stat.json', 'w', encoding='utf=8') as file:
+    json.dump(stat, file, ensure_ascii=False)
