@@ -138,3 +138,10 @@ ENV/
 # Temporary data
 .ipynb_checkpoints/
 
+.idea
+
+### Text analysis
+text_analysis/jsons
+text_analysis/models
+
+
