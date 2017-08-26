@@ -5,7 +5,7 @@
     <title>Memtor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('.static', filename='index_2_5.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='index_3_1.css')}}">
 
 </head>
 <body>
@@ -17,12 +17,23 @@
                 <span class="input-group-addon" id="addon">https://vk.com/</span>
                 <input type="text" class="form-control" aria-describedby="addon" placeholder="URL СООБЩЕСТВА">
                 <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Найти</button>
-            </span>
+                    <a href="http://localhost:5000/test" class="smooth">
+                        <button class="btn btn-primary" type="button">
+                            Найти
+                            <!--<div class="loader"></div>-->
+                        </button>
+                    </a>
+                </span>
             </div>
         </div>
+
+
     </div>
 
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="{{url_for('.static', filename='index_3_10.js')}}"></script>
+
 </body>
 </html>

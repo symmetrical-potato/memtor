@@ -1,0 +1,26 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+head .jumbotron, body .jumbotron {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 0; }
+  head .jumbotron .lead-wrapper, body .jumbotron .lead-wrapper {
+    flex: 0 0 30%; }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 80%;
+  animation: spin 2s linear infinite; }
+
+/*# sourceMappingURL=index_3_1.css.map */
