@@ -6,7 +6,7 @@ import json
 
 import vkapi
 
-session = vk.AuthSession(app_id='6161415', user_login='79992138965', user_password='udisab20')
+session = vk.AuthSession(app_id='6161415', user_login='your_login', user_password='your_pass')
 api = vk.API(session)
 
 list_of_groups_domains = ['pn6']
