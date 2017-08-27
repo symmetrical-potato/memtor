@@ -14,6 +14,7 @@ $(document).ready(function () {
 
     $('input').keyup(function() {
         console.log($('input').val())
+        $.inArray('input', ['stolbn','habr'])
         $('.smooth').attr('href', '/info/' + $('input').val());
     })
 });
