@@ -69,6 +69,13 @@
                 <!--<canvas id="word-cloud-1" width="800px"></canvas>-->
                     {% if data.pics1 %}
                         <div class="row">
+                            {%for p in data.pics4%}
+                            <div class="card">
+                                <img class="card-image-top img-fluid" src="{{p}}" width="300px">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row">
                         {%for p in data.pics1%}
                         <div class="card">
                             <img class="card-image-top img-fluid" src="{{p}}" width="300px">
