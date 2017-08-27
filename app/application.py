@@ -27,6 +27,10 @@ def com_info(com_handle):
     in_cache = get_from_cache(com_handle)
     if in_cache is None:
         stats, name, link, img_link = get_info_by_domain(com_handle)
+        print(stats['average_likes_per_month'])
+        print(stats['average_likes_per_week'])
+        print(stats['average_likes_per_day'])
+
 
         data = {
             'name': name,
