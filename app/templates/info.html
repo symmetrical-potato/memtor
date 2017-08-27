@@ -123,7 +123,10 @@
 
         /*$('body').css('display','none');
         $('body').fadeIn(400);*/
-
+        console.log({{data.median_likes.month}});
+        console.log({{data.median_likes.day}});
+        console.log({{data.median_likes.week}});
+        
         var ctx = document.getElementById("chart-likes");
         var chartLikes = new Chart(ctx, {
             type: 'bar',
