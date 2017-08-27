@@ -144,4 +144,6 @@ ENV/
 text_analysis/jsons
 text_analysis/models
 
+app/cache.json
+app/cached.json
 
