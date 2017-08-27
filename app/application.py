@@ -53,6 +53,12 @@ def com_info(com_handle):
     else:
         data = in_cache
 
+    with open('images_paths.json', encoding='utf-8') as images_paths_json:
+        images_paths = json.load(images_paths_json)
+        for com in images_paths:
+            if com_handle in com:
+                data['pics'] = com[com_handle]
+
     return render_template('info.html', data=data)
 
 
