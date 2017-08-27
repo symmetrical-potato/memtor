@@ -67,24 +67,26 @@
             <div class="col-10">
                 <h2> Актуальные темы </h2>
                 <!--<canvas id="word-cloud-1" width="800px"></canvas>-->
-                <div class="card-columns">
+                    <div class="row">
                     {%for p in data.pics1%}
                     <div class="card">
                         <img class="card-image-top img-fluid" src="{{p}}" width="300px">
                     </div>
                     {% endfor %}
+                    </div>
+                    <div class="row">
                     {%for p in data.pics2%}
                     <div class="card">
                         <img class="card-image-top img-fluid" src="{{p}}" width="300px">
                     </div>
                     {% endfor %}
+                    </div>
                     <!--{%for p in data.pics3%}-->
                     <!--<div class="card">-->
                         <!--<img class="card-image-top img-fluid" src="{{p}}" width="300px">-->
                     <!--</div>-->
                     <!--{% endfor %}-->
 
-                </div>
             </div>
         </div>
 
