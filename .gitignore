@@ -147,3 +147,5 @@ text_analysis/models
 app/cache.json
 app/cached.json
 
+### pickle
+*.pickle
