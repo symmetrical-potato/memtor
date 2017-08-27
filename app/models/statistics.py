@@ -11,7 +11,7 @@ def get_info_by_domain(domain="test"):
     session = vk.AuthSession(**crd)
     api_obj = vk.API(session)
 
-    posts = get_json_by_id(api_obj, domain=domain)
+    posts = get_json_by_id(api_obj, domain=domain, limit=5000)
     stats = get_stats(posts)
 
     rsp = api_obj.wall.get(domain=domain, extended=1)

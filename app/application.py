@@ -53,6 +53,12 @@ def com_info(com_handle):
     else:
         data = in_cache
 
+    with open('images_paths.json', encoding='utf-8') as images_paths_json:
+        images_paths = json.load(images_paths_json)
+        for com in images_paths:
+            if com_handle in com:
+                data['pics'] = com[com_handle]
+
     return render_template('info.html', data=data)
 
 
@@ -67,6 +73,9 @@ def test():
         for i in range(5, 0, -1):
             for j in range(len(data[5 - i])):
                 clouds.append([i * 10, data[5 - i][j]])
+
+    with open('test_images_paths.json') as pic_paths:
+        paths = json.load(pic_paths)
 
     print(clouds)
 
@@ -93,7 +102,8 @@ def test():
             'posts_freq': '41/week',
             'avg_post_len': '244'
         },
-        'clouds': clouds
+        'clouds': clouds,
+        'pics': paths
     }
 
     return render_template('info.html', data=test_data)

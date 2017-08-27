@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('.static', filename='info_3_7.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='info_3_13.css')}}">
     <title>Статистика сообщества {{ data.name }}</title>
     <style>
         .row {
@@ -16,10 +16,10 @@
 <body>
     <div class="container">
         <div class="row justify-content-start">
-                <div class="col-2">
-                    <img src="{{data.img_link}}" class="d-flex mr-3">
+                <div class="col-3">
+                    <img src="{{data.img_link}}" class="d-flex mr-3 profile-group">
                 </div>
-                <div class="col-8">
+                <div class="col-7">
                     <h1 class="mt-0">{{ data.name }}</h1>
                     <p> {{ data.description }} </p>
                     <a href="http://vk.com/{{ data.link }}">http://vk.com/{{ data.link }}</a>
@@ -66,7 +66,15 @@
         <div class="row justify-content-start topics-col" style="display: none;">
             <div class="col-10">
                 <h2> Актуальные темы </h2>
-                <canvas id="word-cloud-1" width="800px"></canvas>
+                <!--<canvas id="word-cloud-1" width="800px"></canvas>-->
+                <div class="card-columns">
+                    {%for p in data.pics%}
+                    <div class="card">
+                        <img class="card-image-top img-fluid" src="{{p}}" width="300px">
+                    </div>
+                    {% endfor %}
+
+                </div>
             </div>
         </div>
 
@@ -76,7 +84,30 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script src="{{url_for('.static', filename='wordcloud2.js')}}"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script>
+
+//        window.onload = function() {
+//            $('.grid').masonry({
+//                itemSelector: '.grid-item',
+//                columnWidth: 300
+//            });
+//        };
+
+//        var grid = $('.grid').masonry({
+//            itemSelector: '.grid-item',
+//            columnWidth: 300
+//        });
+//
+//        grid.imagesLoaded().progress( function() {
+//            grid.masonry('layout');
+//        });
+
+
+
+
+
         $('.nav-link').click(function(e){
            e.preventDefault();
 
@@ -90,8 +121,8 @@
            $(id).css('display','block');
         });
 
-        $('body').css('display','none');
-        $('body').fadeIn(400);
+        /*$('body').css('display','none');
+        $('body').fadeIn(400);*/
 
         var ctx = document.getElementById("chart-likes");
         var chartLikes = new Chart(ctx, {
@@ -138,6 +169,7 @@
         })
 
         var ctxComs = document.getElementById("chart-coms");
+        console.log(data.median_likes)
         var chartReps = new Chart(ctxComs, {
             type: 'bar',
             data: {

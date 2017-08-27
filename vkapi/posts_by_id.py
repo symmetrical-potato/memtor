@@ -10,13 +10,13 @@ def get_posts_by_id(api_obj, owner_id=None, domain=None, limit=1000, offset=0):
     i = offset
     posts = []
     while i < count_of_posts and i < limit:
-        step = min(count_of_posts - i, 100)
+        step = min(count_of_posts - i, 5)
         # count_of_posts = data_load.wall.get(owner_id=owner_id, domain=domain, count=1)[0]
 
         posts += api_obj.wall.get(owner_id=owner_id, domain=domain, offset=i, count=step)[1:]
 
         # print(e.keys())
-        time.sleep(3)
+        time.sleep(5)
 
         i += step
 
