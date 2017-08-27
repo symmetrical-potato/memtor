@@ -51,6 +51,7 @@ def com_info(com_handle):
                 'week': stats['average_reposts_per_week'],
                 'day': stats['average_reposts_per_day']
             }
+
         }
 
         put_in_cache(com_handle, data)
