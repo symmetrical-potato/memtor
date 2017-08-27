@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row justify-content-start">
                 <div class="col-2">
-                    <img src="{{url_for('.static', filename='default-2.png')}}" class="d-flex mr-3">
+                    <img src="{{data.img_link}}" class="d-flex mr-3">
                 </div>
                 <div class="col-8">
                     <h1 class="mt-0">{{ data.name }}</h1>
@@ -59,8 +59,6 @@
                     </div>
                     <div class="card p-3">
                         <h3 class="card-title">Общая информация</h3>
-                        <p class="card-text">Частота публикаций: {{ data.general.posts_freq }}</p>
-                        <p class="card-text">Средняя длина публикации: {{ data.general.avg_post_len }}</p>
                     </div>
                 </div>
             </div>
@@ -99,11 +97,11 @@
         var chartLikes = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Месяц', 'Две недели', 'Неделя'],
+                labels: ['Месяц', 'Неделя', 'День'],
                 datasets: [{
                    label: "Лайки",
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                   data: [{{data.median_likes.month}}, {{data.median_likes.two_weeks}}, {{data.median_likes.one_week}}]
+                   data: [{{data.median_likes.month}}, {{data.median_likes.week}}, {{data.median_likes.day}}]
                 }]
             },
             options: {
@@ -121,11 +119,11 @@
         var chartReps = new Chart(ctxReps, {
             type: 'bar',
             data: {
-                labels: ['Месяц', 'Две недели', 'Неделя'],
+                labels: ['Месяц', 'Неделя', 'День'],
                 datasets: [{
                    label: "Репосты",
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                   data: [{{data.median_reposts.month}}, {{data.median_reposts.two_weeks}}, {{data.median_reposts.one_week}}]
+                   data: [{{data.median_reposts.month}}, {{data.median_reposts.week}}, {{data.median_reposts.day}}]
                 }]
             },
             options: {
@@ -143,11 +141,11 @@
         var chartReps = new Chart(ctxComs, {
             type: 'bar',
             data: {
-                labels: ['Месяц', 'Две недели', 'Неделя'],
+                labels: ['Месяц', 'Неделя', 'День'],
                 datasets: [{
                    label: "Комментарии",
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                   data: [{{data.median_comments.month}}, {{data.median_comments.two_weeks}}, {{data.median_comments.one_week}}]
+                   data: [{{data.median_comments.month}}, {{data.median_comments.week}}, {{data.median_comments.day}}]
                 }]
             },
             options: {
