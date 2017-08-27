@@ -68,6 +68,9 @@ def test():
             for j in range(len(data[5 - i])):
                 clouds.append([i * 10, data[5 - i][j]])
 
+    with open('test_images_paths.json') as pic_paths:
+        paths = json.load(pic_paths)
+
     print(clouds)
 
     test_data = {
@@ -93,7 +96,8 @@ def test():
             'posts_freq': '41/week',
             'avg_post_len': '244'
         },
-        'clouds': clouds
+        'clouds': clouds,
+        'pics': paths
     }
 
     return render_template('info.html', data=test_data)

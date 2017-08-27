@@ -2,9 +2,12 @@ body {
   background: #eceeef; }
   body .container {
     min-height: 100vh; }
-    body .container img {
+    body .container .profile-group {
       -webkit-border-radius: 100%;
       -moz-border-radius: 100%;
       border-radius: 100%; }
 
-/*# sourceMappingURL=info_3_7.css.map */
+.grid-item {
+  width: 300px; }
+
+/*# sourceMappingURL=info_3_13.css.map */

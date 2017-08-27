@@ -7,12 +7,17 @@ body {
     //flex-direction: column;
     //justify-content: center;
 
-    img {
+    .profile-group {
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%;
     }
 
   }
+
+}
+
+.grid-item {
+  width: 300px;
 
 }
