@@ -1,8 +1,10 @@
 # memtor v0.1
 
 ## Описание
-<p>[memtor](http://memtor.ml) -- это веб-помощник smm-специалиста, который помогает отслеживать локальные тренды для создания вирусного контента.</p>
-<p>Данный проект был создан в рамках хакатона muzis: [AdHack](http://adhack.muzis.ru)</p>
+[memtor](http://memtor.ml) -- это веб-помощник smm-специалиста, который помогает отслеживать локальные тренды для создания вирусного контента.
+<br>
+Данный проект был создан в рамках хакатона muzis: [AdHack](http://adhack.muzis.ru)
+<br>
 
 [![memtor showcase](images/click.png)](https://yadi.sk/i/AWcoKWOu3MMoc8)
 
