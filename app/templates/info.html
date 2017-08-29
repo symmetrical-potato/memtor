@@ -67,14 +67,61 @@
             <div class="col-10">
                 <h2> Актуальные темы </h2>
                 <!--<canvas id="word-cloud-1" width="800px"></canvas>-->
-                <div class="card-columns">
-                    {%for p in data.pics%}
-                    <div class="card">
-                        <img class="card-image-top img-fluid" src="{{p}}" width="300px">
-                    </div>
-                    {% endfor %}
+                    {% if data.pics1 %}
+                        <div class="row">
+                            {%for p in data.pics4%}
+                            <div class="card">
+                                <img class="card-image-top img-fluid" src="{{p}}" width="300px">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row">
+                        {%for p in data.pics1%}
+                        <div class="card">
+                            <img class="card-image-top img-fluid" src="{{p}}" width="300px">
+                        </div>
+                        {% endfor %}
+                        </div>
+                        <div class="row">
+                        {%for p in data.pics2%}
+                        <div class="card">
+                            <img class="card-image-top img-fluid" src="{{p}}" width="300px">
+                        </div>
+                        {% endfor %}
+                        </div>
+                        <div class="row">
+                        {%for p in data.pics3%}
+                        <div class="card">
+                            <img class="card-image-top img-fluid" src="{{p}}" width="300px">
+                        </div>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if data.topics %}
+                        <div class="row" >
+                            {%for p in data.topics%}
+                             <div class="col-2" style="max-width: 17.6%">
+                                <div class="card">
+                                    <ul style="padding-left: 45px; padding-top:15px;">
+                                        {% for t in p %}
+                                            <li> {{t}} </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                             </div>
 
-                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+
+
+                    <!--{%for p in data.pics3%}-->
+                    <!--<div class="card">-->
+                        <!--<img class="card-image-top img-fluid" src="{{p}}" width="300px">-->
+                    <!--</div>-->
+                    <!--{% endfor %}-->
+
             </div>
         </div>
 
@@ -123,6 +170,7 @@
 
         /*$('body').css('display','none');
         $('body').fadeIn(400);*/
+
 
         var ctx = document.getElementById("chart-likes");
         var chartLikes = new Chart(ctx, {

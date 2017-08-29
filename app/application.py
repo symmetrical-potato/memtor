@@ -1,7 +1,8 @@
-from flask import Flask, render_template, send_file
+from flask import Flask, render_template, send_file, redirect
 import json
 from app.models.statistics import get_info_by_domain
 from app.caching import get_from_cache, put_in_cache
+
 
 app = Flask(__name__)
 
@@ -26,30 +27,7 @@ def stuff():
 def com_info(com_handle):
     in_cache = get_from_cache(com_handle)
     if in_cache is None:
-        stats, name, link, img_link = get_info_by_domain(com_handle)
-
-        data = {
-            'name': name,
-            'link': link,
-            'img_link': img_link,
-            'median_likes': {
-                'month': stats['average_likes_per_month'],
-                'week': stats['average_likes_per_week'],
-                'day': stats['average_likes_per_day']
-            },
-            'median_comments': {
-                'month': stats['average_comments_per_month'],
-                'week': stats['average_comments_per_week'],
-                'day': stats['average_comments_per_day']
-            },
-            'median_reposts': {
-                'month': stats['average_reposts_per_month'],
-                'week': stats['average_reposts_per_week'],
-                'day': stats['average_reposts_per_day']
-            }
-        }
-
-        put_in_cache(com_handle, data)
+        return redirect('/')
     else:
         data = in_cache
 
