@@ -145,3 +145,5 @@ text_analysis/jsons
 text_analysis/models
 
 
+### Credentials
+credentials.*
